@@ -1,0 +1,10 @@
+CREATE TABLE PACIENTE(id_paciente int primary key,
+					  nome varchar(40),
+					  email varchar(30),
+					  data_nascimento date,
+					  idade int,
+					  endereco varchar(20),
+					  telefone varchar(11),
+					  celular varchar(11),
+					  foto image,
+					  senha varchar(20))
