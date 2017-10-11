@@ -66,7 +66,36 @@ public partial class SiteMaster : MasterPage
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        var tipo = Session["TIPO_USUARIO"];
+        TipoUsuario tipoUsuario;
 
+        if (tipo == null)
+        {
+            tipoUsuario = TipoUsuario.NAO_LOGADO;
+        }
+        else
+        {
+            tipoUsuario = (TipoUsuario)tipo;
+        }
+
+        switch (tipoUsuario) {
+            case TipoUsuario.MEDICO:
+                break;
+            case TipoUsuario.PACIENTE:
+                break;
+            case TipoUsuario.SECRETARIA:
+                break;
+            case TipoUsuario.NAO_LOGADO:
+                break;
+        }
+
+        /*
+            < li class="selected"><a href = "#" > Home </ a ></ li >
+            < li >< a href="#"></a></li>
+            <li><a href = "#" ></ a ></ li >
+            < li >< a href="#"></a></li>
+            <li><a href = "#" > </ a > &nbsp;</li>
+        */
     }
 
     protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

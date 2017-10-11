@@ -4,17 +4,39 @@
 
 <html lang="en">
 <head runat="server">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <style>
+         .selected{
+             background-color:rgba(0, 0, 0, 0.5);
+         }
+     </style>
     <meta charset="utf-8" />
     <title>Consultas Médicas</title>
 </head>
-<body style="color:aliceblue">
+
+
+<body style="background-color:#F2F1EF">
+   <nav class="navbar navbar-inverse" style="height:60px; background-color:#22313F">
+  <div class="container-fluid" style="margin-top:4px">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Consultas Médicas</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <asp:Literal ID="literalMenu" runat="server">
+
+      </asp:Literal>
+    </ul>
+  </div>
+</nav>
     <form runat="server">
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+
             </footer>
         </div>
     </form>
