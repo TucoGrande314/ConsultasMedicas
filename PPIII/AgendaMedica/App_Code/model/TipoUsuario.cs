@@ -8,5 +8,8 @@ using System.Web;
 /// </summary>
 public enum TipoUsuario
 {
-  MEDICO, PACIENTE, SECRETARIA, NAO_LOGADO  
+  MEDICO = 'M',
+  PACIENTE = 'P',
+  SECRETARIA = 'S',
+  NAO_LOGADO = 'N'
 }

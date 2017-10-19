@@ -67,11 +67,11 @@
           
           <!--<p class="forgot"><a href="#">Forgot Password?</a></p>-->
           
-           <asp:Button ID="btnEntrar" runat="server" class="button button-block" Text="Entrar" />
+           <asp:Button ID="btnEntrar" runat="server" class="button button-block" Text="Entrar" OnClick="btnEntrar_Click" />
           
         </div>
         
-      </div><!-- tab-content -->
+      </div>
       
 </div> <!-- /form -->
   <script src='Scripts/jquery-1.10.2.min.js'></script>

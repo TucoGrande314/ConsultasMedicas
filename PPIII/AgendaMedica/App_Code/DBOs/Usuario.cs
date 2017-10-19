@@ -7,12 +7,6 @@ using System.Web;
 /// Summary description for Usuario
 /// </summary>
 /// 
-public enum TipoUsuario
-{
-    PACIENTE,
-    MEDICO,
-    SECRETARIA
-}
 public class Usuario
 {
     int idUsuario;
@@ -69,6 +63,11 @@ public class Usuario
         {
             tipo = value;
         }
+
+    }
+
+    public Usuario()
+    {
 
     }
 

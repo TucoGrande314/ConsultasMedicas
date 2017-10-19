@@ -16,6 +16,11 @@ public class Paciente : Usuario
     int celular;
     Image foto;
 
+    public Paciente() : base()
+    {
+
+    }
+
     public Paciente(int idUsuario, string email, string senha, int idPaciente, string nome, DateTime dataNascimento, string endereco, int celular, Image foto) : base(idUsuario, email, senha, TipoUsuario.PACIENTE)
     {
         this.IdPaciente = idPaciente;
