@@ -12,7 +12,7 @@ public class Medico : Usuario
     int idMedico;
     string nome;
     string endereco;
-    int celular;
+    string celular;
     Image foto;
     Especializacao especializacao;
 
@@ -55,7 +55,7 @@ public class Medico : Usuario
         }
     }
 
-    public int Celular
+    public string Celular
     {
         get
         {
@@ -94,7 +94,12 @@ public class Medico : Usuario
         }
     }
 
-    public Medico(int idMedico, int idUsuario, string email, string senha, string nome, string endereco, int celular, Image foto, Especializacao especializacao): base(idUsuario, email, senha, TipoUsuario.MEDICO)
+    public Medico()
+    {
+
+    }
+
+    public Medico(int idMedico, int idUsuario, string email, string senha, string nome, string endereco, string celular, Image foto, Especializacao especializacao): base(idUsuario, email, senha, TipoUsuario.MEDICO)
     {
         this.Nome = nome;
         this.Endereco = endereco;

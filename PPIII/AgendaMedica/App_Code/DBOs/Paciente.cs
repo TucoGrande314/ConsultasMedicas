@@ -13,7 +13,7 @@ public class Paciente : Usuario
     string nome;
     DateTime dataNascimento;
     string endereco;
-    int celular;
+    string celular;
     Image foto;
 
     public Paciente() : base()
@@ -21,7 +21,7 @@ public class Paciente : Usuario
 
     }
 
-    public Paciente(int idUsuario, string email, string senha, int idPaciente, string nome, DateTime dataNascimento, string endereco, int celular, Image foto) : base(idUsuario, email, senha, TipoUsuario.PACIENTE)
+    public Paciente(int idUsuario, string email, string senha, int idPaciente, string nome, DateTime dataNascimento, string endereco, string celular, Image foto) : base(idUsuario, email, senha, TipoUsuario.PACIENTE)
     {
         this.IdPaciente = idPaciente;
         this.Nome = nome;
@@ -83,7 +83,7 @@ public class Paciente : Usuario
         }
     }
 
-    public int Celular
+    public string Celular
     {
         get
         {

@@ -34,18 +34,7 @@ public partial class Login : System.Web.UI.Page
         if (usuario != null)
         {
             // manda pra tela inicial de usuario
-            switch (usuario.Tipo)
-            {
-                case TipoUsuario.MEDICO:
-                    LogarMedico(usuario);
-                    break;
-                case TipoUsuario.PACIENTE:
-                    LogarPaciente(usuario);
-                    break;
-                case TipoUsuario.SECRETARIA:
-                    LogarSecretaria(usuario);
-                    break;
-            }
+            logar(usuario);
         }
         else
         {
@@ -53,18 +42,23 @@ public partial class Login : System.Web.UI.Page
         }
     }
 
-    public void LogarMedico(Usuario usuario)
+    public void logar(Usuario usuario)
     {
+        switch (usuario.Tipo){
+            case TipoUsuario.MEDICO:
+                Session["USUARIO"] = MedicoDao.UsuarioToMedico(usuario);
+                break;
+            case TipoUsuario.SECRETARIA:
+                Session["USUARIO"] = SecretariaDao.UsuarioToSecretaria(usuario);
+                break;
+            case TipoUsuario.PACIENTE:
+                Session["USUARIO"] = PacienteDao.UsuarioToPaciente(usuario);
+                break;
+            default:
+                Session["USUARIO"] = usuario;
+                break;
+        }
 
-    }
-
-    public void LogarPaciente(Usuario usuario)
-    {
-
-    }
-
-    public void LogarSecretaria(Usuario usuario)
-    {
-
+        Response.Redirect("./Default.aspx");
     }
 }

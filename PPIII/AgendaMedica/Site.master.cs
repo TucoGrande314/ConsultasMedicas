@@ -66,7 +66,7 @@ public partial class SiteMaster : MasterPage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        var tipo = Session["TIPO_USUARIO"];
+        var tipo = Session["USUARIO"];
         TipoUsuario tipoUsuario;
 
         if (tipo == null)
@@ -75,12 +75,12 @@ public partial class SiteMaster : MasterPage
         }
         else
         {
-            tipoUsuario = (TipoUsuario)tipo;
+            tipoUsuario = ((Usuario)tipo).Tipo;
         }
 
         switch (tipoUsuario) {
             case TipoUsuario.MEDICO:
-                literalMenu.Text = "< li class='selected'><a href = '#' > Home </ a ></ li >" +
+                literalMenu.Text = "< li class='selected'><a href = '#'> Home </ a ></ li >" +
                                    "<li><a href='#'>Perfil</a></li>" +
                                    "<li><a href='#'>Relatórios</a></li>" +
                                    "<li><a href='#'>Consultas</a></li>";
@@ -91,7 +91,7 @@ public partial class SiteMaster : MasterPage
                                    "<li><a href='#'>Consultas</a></li>";
                 break;
             case TipoUsuario.SECRETARIA:
-                literalMenu.Text = "< li class='selected'><a href = '#' > Home </ a ></ li >" +
+                literalMenu.Text = "<li class='selected'><a href = '#'> Home </a></li>" +
                                    "<li><a href='#'>Perfil</a></li>" +
                                    "<li><a href='#'>Relatórios</a></li>" +
                                    "<li><a href='#'>Estatísticas</a></li>" +

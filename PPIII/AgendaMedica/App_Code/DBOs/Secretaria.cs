@@ -10,7 +10,7 @@ public class Secretaria :Usuario
 {
     int idSecretaria;
     string nome;
-    int celular;
+    string celular;
 
     public int IdSecretaria
     {
@@ -38,7 +38,7 @@ public class Secretaria :Usuario
         }
     }
 
-    public int Celular
+    public string Celular
     {
         get
         {
@@ -51,10 +51,14 @@ public class Secretaria :Usuario
         }
     }
 
-    public Secretaria(int idSecretaria, int idUsuario, string email, string senha ,string nome, int celular) : base(idUsuario, email, senha, TipoUsuario.SECRETARIA) 
+    public Secretaria(int idSecretaria, int idUsuario, string email, string senha ,string nome, string celular) : base(idUsuario, email, senha, TipoUsuario.SECRETARIA) 
     {
         this.IdSecretaria = idSecretaria;
         this.Nome = nome;
         this.Celular = celular;
+    }
+    public Secretaria()
+    {
+
     }
 }

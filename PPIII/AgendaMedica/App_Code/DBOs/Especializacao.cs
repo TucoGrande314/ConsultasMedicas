@@ -17,6 +17,11 @@ public class Especializacao
         this.nomeEspecializacao = nomeEspecializacao;
     }
 
+    public Especializacao()
+    {
+
+    }
+
     public int IdEspecializacao
     {
         get

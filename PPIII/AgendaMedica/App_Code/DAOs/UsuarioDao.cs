@@ -44,9 +44,11 @@ public class UsuarioDao
             retorno.Senha = drDados["senha"].ToString();
             retorno.Tipo = (TipoUsuario)Convert.ToChar(drDados["tipo_usuario"]);
 
+            drDados.Close();
             return retorno;
         }
 
+        drDados.Close();
         return null;
     }
 }
