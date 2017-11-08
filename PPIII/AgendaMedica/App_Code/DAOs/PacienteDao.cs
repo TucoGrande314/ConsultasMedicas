@@ -52,4 +52,29 @@ public class PacienteDao
         drDados.Close();
         return null;
     }
+    public static void CadastrarPaciente(Paciente novoPac)
+    {
+        if (!Dao.EstaAberto())
+        {
+            Dao.AbrirConexao();
+        }
+        UsuarioDao.insereUsuario(novoPac);
+
+        string comando = "INSERT INTO PACIENTE VALUES (@idUsuario, @nome, @dataNasc, @endereco, @celular, null)";
+        SqlCommand comSql = new SqlCommand(comando, Dao.Conexao);
+
+        comSql.Parameters.AddWithValue("@idUsuario", novoPac.IdUsuario);
+        comSql.Parameters.AddWithValue("@nome", novoPac.Nome);
+        comSql.Parameters.AddWithValue("@dataNasc", novoPac.DataNascimento.ToString("yyyy-MM-dd HH:mm:ss.fff"));
+        comSql.Parameters.AddWithValue("@endereco", novoPac.Endereco);
+        comSql.Parameters.AddWithValue("@celular", novoPac.Celular);
+        try
+        {
+            comSql.ExecuteNonQuery();
+        }
+        catch (SqlException sqlEx)
+        {
+
+        }
+    }
 }
