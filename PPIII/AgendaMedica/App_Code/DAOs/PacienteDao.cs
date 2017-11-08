@@ -60,6 +60,8 @@ public class PacienteDao
         }
         UsuarioDao.insereUsuario(novoPac);
 
+        novoPac.IdUsuario = UsuarioDao.getId(novoPac.Email, novoPac.Senha);
+
         string comando = "INSERT INTO PACIENTE VALUES (@idUsuario, @nome, @dataNasc, @endereco, @celular, null)";
         SqlCommand comSql = new SqlCommand(comando, Dao.Conexao);
 

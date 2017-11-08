@@ -56,6 +56,7 @@ public class Secretaria :Usuario
         this.IdSecretaria = idSecretaria;
         this.Nome = nome;
         this.Celular = celular;
+        this.Tipo = TipoUsuario.SECRETARIA;
     }
     public Secretaria()
     {

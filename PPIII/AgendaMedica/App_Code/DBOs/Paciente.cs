@@ -29,7 +29,9 @@ public class Paciente : Usuario
         this.Endereco = endereco;
         this.Celular = celular;
         this.Foto = foto;
+        this.Tipo = TipoUsuario.PACIENTE;
     }
+
 
     public int IdPaciente
     {

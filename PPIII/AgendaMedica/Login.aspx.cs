@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -60,5 +61,32 @@ public partial class Login : System.Web.UI.Page
         }
 
         Response.Redirect("./Default.aspx");
+    }
+
+    protected void btnCadastrar_Click(object sender, EventArgs e)
+    {
+        if(txtNome.Text.Trim()==""|| txtDataNasc.Text.Trim()==""||
+           txtCelular.Text.Trim()=="" || txtEndereco.Text.Trim()==""||
+           txtEmailCadastro.Text.Trim()==""|| txtSenhaCadastro.Text.Trim()==""||
+           txtConfSenha.Text.Trim()=="")
+           {
+            //alerta erro
+            return;
+           }
+        if(txtSenhaCadastro!=txtConfSenha) 
+        {
+            //alerta erro
+            return;
+        }
+
+        Paciente novoPac= new Paciente();
+        novoPac.Nome = txtNome.Text;
+        novoPac.DataNascimento = DateTime.Parse(txtNome.Text);
+        novoPac.Celular = txtCelular.Text;
+        novoPac.Endereco = txtEndereco.Text;
+        novoPac.Email = txtEmailCadastro.Text;
+        novoPac.Senha = txtSenhaCadastro.Text;
+
+            PacienteDao.CadastrarPaciente(novoPac);
     }
 }

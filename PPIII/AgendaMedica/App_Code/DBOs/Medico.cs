@@ -107,5 +107,6 @@ public class Medico : Usuario
         this.Foto = foto;
         this.Especializacao = especializacao;
         this.IdMedico = idMedico;
+        this.Tipo = TipoUsuario.MEDICO;
     }
 }

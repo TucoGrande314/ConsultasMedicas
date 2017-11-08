@@ -17,6 +17,28 @@ public class UsuarioDao
         //
     }
 
+    public static int getId(string email, string senha) 
+    {
+        if (!Dao.EstaAberto())
+            Dao.AbrirConexao();
+
+        SqlDataReader drDados;
+
+        string comando = "SELECT * FROM Usuario WHERE Email = @Email and Senha = @Senha";
+        SqlCommand comSql = new SqlCommand(comando, Dao.Conexao);
+        comSql.Parameters.AddWithValue("@Email", email);
+        comSql.Parameters.AddWithValue("@Senha", senha);
+
+        drDados = comSql.ExecuteReader();
+
+        int retorno = 0;
+        if (drDados.Read())
+            retorno = Convert.ToInt32(drDados["idUsuario"].ToString());
+        
+            
+        return retorno;
+    }
+
     public static Usuario LoginValido(Usuario usuario)
     {
         if (!Dao.EstaAberto())
@@ -69,7 +91,7 @@ public class UsuarioDao
         }
         catch (SqlException sqlEx)
         {
-
+            
         }
 
     }

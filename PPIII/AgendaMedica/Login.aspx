@@ -50,7 +50,7 @@
             <asp:TextBox ID="txtConfSenha" runat="server" placeholder="Confirmar Senha" AutoCompleteType="Disabled" TextMode="Password"></asp:TextBox>
           </div>
           
-         <asp:Button ID="btnCadastrar" runat="server" class="button button-block" Text="Cadastrar" />
+         <asp:Button ID="btnCadastrar" runat="server" class="button button-block" Text="Cadastrar" OnClick="btnCadastrar_Click" />
           
         </div>
         
