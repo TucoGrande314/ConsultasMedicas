@@ -51,4 +51,26 @@ public class UsuarioDao
         drDados.Close();
         return null;
     }
+
+    public static void insereUsuario(Usuario novoUser)
+    {
+        if (!Dao.EstaAberto())
+        {
+            Dao.AbrirConexao();
+        }
+        string comando = "INSERT INTO USUARIO VALUES (@Email, @Senha)";
+        SqlCommand comSql = new SqlCommand(comando, Dao.Conexao);
+        comSql.Parameters.AddWithValue("@Email", novoUser.Email);
+        comSql.Parameters.AddWithValue("@Senha", novoUser.Senha);
+
+        try
+        {
+            comSql.ExecuteNonQuery();
+        }
+        catch (SqlException sqlEx)
+        {
+
+        }
+
+    }
 }
