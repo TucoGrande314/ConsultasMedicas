@@ -48,6 +48,7 @@ public partial class Login : System.Web.UI.Page
         switch (usuario.Tipo){
             case TipoUsuario.MEDICO:
                 Session["USUARIO"] = MedicoDao.UsuarioToMedico(usuario);
+                Response.Redirect("./DefaultMedico.aspx");
                 break;
             case TipoUsuario.SECRETARIA:
                 Session["USUARIO"] = SecretariaDao.UsuarioToSecretaria(usuario);

@@ -44,9 +44,8 @@ public class MedicoDao
             retorno.Tipo = TipoUsuario.MEDICO;
             retorno.Nome = drDados["nome"].ToString();
             retorno.Celular = drDados["celular"].ToString();
-            retorno.Endereco = drDados["endereco"].ToString();
-            retorno.Especializacao = EspecializacaoDao.getEspecializacao(Convert.ToInt32(drDados["idEspecializacao"]));
-            retorno.Foto = (Image)drDados["foto"];
+            retorno.Especializacao = EspecializacaoDao.getEspecializacao(Convert.ToInt32(drDados["id_especializacao"]));
+            //retorno.Foto = (Image)drDados["foto"];
 
             drDados.Close();
             return retorno;
