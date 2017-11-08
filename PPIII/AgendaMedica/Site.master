@@ -31,7 +31,7 @@
   </div>
 </nav>
     <form runat="server">
-        <div class="container body-content">
+        <div class="container-fluid" style="margin:20px">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
