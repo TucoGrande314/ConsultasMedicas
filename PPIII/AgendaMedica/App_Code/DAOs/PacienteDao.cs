@@ -76,7 +76,7 @@ public class PacienteDao
         }
         catch (SqlException sqlEx)
         {
-
+            throw new InsertPacientException("Paciente não inserido "+ sqlEx);
         }
     }
 }

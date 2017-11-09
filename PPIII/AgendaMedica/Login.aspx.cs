@@ -71,23 +71,40 @@ public partial class Login : System.Web.UI.Page
            txtEmailCadastro.Text.Trim()==""|| txtSenhaCadastro.Text.Trim()==""||
            txtConfSenha.Text.Trim()=="")
            {
-            //alerta erro
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Preencha todos os campos para relizar o cadastro')", true);
             return;
            }
-        if(txtSenhaCadastro!=txtConfSenha) 
+        if(txtSenhaCadastro.Text!=txtConfSenha.Text) 
         {
-            //alerta erro
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('A senhas não batem')", true);
             return;
         }
 
         Paciente novoPac= new Paciente();
         novoPac.Nome = txtNome.Text;
-        novoPac.DataNascimento = DateTime.Parse(txtNome.Text);
+        novoPac.DataNascimento = DateTime.Parse(txtDataNasc.Text);
         novoPac.Celular = txtCelular.Text;
         novoPac.Endereco = txtEndereco.Text;
         novoPac.Email = txtEmailCadastro.Text;
         novoPac.Senha = txtSenhaCadastro.Text;
-
+        novoPac.Tipo = TipoUsuario.PACIENTE;
+        try
+        {
             PacienteDao.CadastrarPaciente(novoPac);
+        }
+        catch(InsertPacientException er)
+        {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('"+er.ToString()+"')", true);
+        }
+        catch (InsertUsuarioException er)
+        {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + er.ToString() + "')", true);
+        }
+        catch (UsuarioNotFoundException er)
+        {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + er.ToString() + "')", true);
+        }
+
+        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Usuário cadastrado com sucesso, faça seu login')", true);
     }
 }
