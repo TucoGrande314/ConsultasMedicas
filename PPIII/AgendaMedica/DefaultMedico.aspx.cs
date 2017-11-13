@@ -20,9 +20,9 @@ public partial class DefaultMedico : System.Web.UI.Page
             try
             {
                 // formatar data
-                gvConsultas.Rows[i].Cells[3].Text = gvConsultas.Rows[0].Cells[3].Text.Split(' ')[0];
+                gvConsultas.Rows[i].Cells[3].Text = gvConsultas.Rows[i].Cells[3].Text.Split(' ')[0];
                 // fortatar inicio
-                gvConsultas.Rows[i].Cells[4].Text = gvConsultas.Rows[0].Cells[4].Text.Substring(0, 5);
+                gvConsultas.Rows[i].Cells[4].Text = gvConsultas.Rows[i].Cells[4].Text.Substring(0, 5);
             }
             catch
             {
@@ -64,6 +64,15 @@ public partial class DefaultMedico : System.Web.UI.Page
 
     protected void btnSalvar_Click(object sender, EventArgs e)
     {
+        var consulta = new Consulta();
+        consulta.Id = Convert.ToInt32(gvConsultas.SelectedRow.Cells[7].Text);
+        consulta.Stat = rbStatus.SelectedValue;
+
+        var anotacoes = new Anotacoes();
+        anotacoes.Diagnostico = txtDiagnostico.Text;
+        anotacoes.Medicacao = txtMedicamentos.Text;
+        anotacoes.Consulta = consulta;
+
 
     }
 }
