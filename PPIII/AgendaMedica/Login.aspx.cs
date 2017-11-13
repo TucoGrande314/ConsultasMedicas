@@ -30,16 +30,23 @@ public partial class Login : System.Web.UI.Page
         usuario.Email = txtEmailLogin.Text;
         usuario.Senha = txtSenhaLogin.Text;
 
-        usuario = UsuarioDao.LoginValido(usuario);
-
-        if (usuario != null)
+        try
         {
-            // manda pra tela inicial de usuario
-            logar(usuario);
+            usuario = UsuarioDao.LoginValido(usuario);
+            if (usuario != null)
+            {
+                logar(usuario);
+            }
         }
-        else
+        catch (UsuarioNotFoundException ex)
         {
-            // alerta o erro
+            lblMensagem.Text = ex.Message;
+            lblMensagem.Visible = true;
+        }
+        catch (Exception ex)
+        {
+            lblMensagem.Text = "Não foi possível logar, tente novamente ou entre em contato com o administrador do sistema";
+            lblMensagem.Visible = true;
         }
     }
 

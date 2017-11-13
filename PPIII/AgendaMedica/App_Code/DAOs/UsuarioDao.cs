@@ -17,7 +17,7 @@ public class UsuarioDao
         //
     }
 
-    public static int getId(string email, string senha) 
+    public static int getId(string email, string senha)
     {
         if (!Dao.EstaAberto())
             Dao.AbrirConexao();
@@ -40,7 +40,7 @@ public class UsuarioDao
         else
         {
             drDados.Close();
-            throw new UsuarioNotFoundException("Usuário não encontrado");            
+            throw new UsuarioNotFoundException("Usuário não encontrado");
         }
         return retorno;
     }
@@ -80,7 +80,7 @@ public class UsuarioDao
         else
         {
             drDados.Close();
-            throw new InsertUsuarioException("Usuario não inserido");
+            throw new UsuarioNotFoundException("Usuario ou senha invalido(s).");
         }
     }
 
@@ -94,7 +94,7 @@ public class UsuarioDao
         SqlCommand comSql = new SqlCommand(comando, Dao.Conexao);
         comSql.Parameters.AddWithValue("@Email", novoUser.Email);
         comSql.Parameters.AddWithValue("@Senha", novoUser.Senha);
-        comSql.Parameters.AddWithValue("@Tipo", ""+(char)novoUser.Tipo);
+        comSql.Parameters.AddWithValue("@Tipo", "" + (char)novoUser.Tipo);
 
         try
         {
@@ -102,8 +102,8 @@ public class UsuarioDao
         }
         catch (SqlException sqlEx)
         {
-            throw new InsertUsuarioException("Usuario não inserido com sucesso "+ sqlEx);
+            throw new InsertUsuarioException("Usuario não inserido com sucesso " + sqlEx);
         }
-        
+
     }
 }
