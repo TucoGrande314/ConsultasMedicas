@@ -24,12 +24,23 @@ public partial class DefaultMedico : System.Web.UI.Page
         {
             if (gvConsultas.SelectedRow != null)
             {
-                lbData.Text = gvConsultas.SelectedRow.Cells[3].Text;
+                
                 lbPaciente.Text = gvConsultas.SelectedRow.Cells[1].Text;
-
+                lbData.Text = gvConsultas.SelectedRow.Cells[3].Text;
+                lbHorario.Text = gvConsultas.SelectedRow.Cells[4].Text;
                 pnlConsultaSelecionada.Visible = true;
             }
         }
         
+    }
+
+    protected void gvConsultas_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        selecionarConsulta();
+    }
+
+    protected void btnSalvar_Click(object sender, EventArgs e)
+    {
+
     }
 }
