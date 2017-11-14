@@ -14,11 +14,30 @@
     <div class="form">
       
       <ul class="tab-group">
-        <li class="tab active"><a href="#signup">Cadastre-se</a></li>
-        <li class="tab"><a href="#login">Faça seu login</a></li>
+        <li class="tab active"><a href="#login">Faça seu login</a></li>
+        <li class="tab"><a href="#signup">Cadastre-se</a></li>
       </ul>
       
       <div class="tab-content">
+         <div id="login">   
+          <h1>Bem vindo!</h1>
+          
+          <div class="field-wrap">
+            <asp:TextBox ID="txtEmailLogin" runat="server" placeholder="E-mail" AutoCompleteType="Email" TextMode="Email" ></asp:TextBox>
+          </div>
+          
+          <div class="field-wrap">
+            <asp:TextBox ID="txtSenhaLogin" runat="server" placeholder="Senha" AutoCompleteType="Disabled" TextMode="Password"></asp:TextBox>
+          </div>
+          
+          <!--<p class="forgot"><a href="#">Forgot Password?</a></p>-->
+          
+           <asp:Button ID="btnEntrar" runat="server" class="button button-block" Text="Entrar" OnClick="btnEntrar_Click" />
+          
+            <br />
+            <asp:Label ID="lblMensagem" runat="server" ForeColor="Red" Width="100%"></asp:Label>
+        </div>
+
         <div id="signup">   
           <h1>Cadastre-se
             </h1>
@@ -51,23 +70,6 @@
           </div>
           
          <asp:Button ID="btnCadastrar" runat="server" class="button button-block" Text="Cadastrar" OnClick="btnCadastrar_Click" />
-          
-        </div>
-        
-        <div id="login">   
-          <h1>Bem vindo!</h1>
-          
-          <div class="field-wrap">
-            <asp:TextBox ID="txtEmailLogin" runat="server" placeholder="E-mail" AutoCompleteType="Email" TextMode="Email" ></asp:TextBox>
-          </div>
-          
-          <div class="field-wrap">
-            <asp:TextBox ID="txtSenhaLogin" runat="server" placeholder="Senha" AutoCompleteType="Disabled" TextMode="Password"></asp:TextBox>
-          </div>
-          
-          <!--<p class="forgot"><a href="#">Forgot Password?</a></p>-->
-          
-           <asp:Button ID="btnEntrar" runat="server" class="button button-block" Text="Entrar" OnClick="btnEntrar_Click" />
           
         </div>
         
