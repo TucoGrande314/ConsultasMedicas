@@ -5,14 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class DefaultPaciente : System.Web.UI.Page
+public partial class DefaultPacient : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         Paciente pac = (Paciente)Session["USUARIO"];
-        lblNome.Text = pac.Nome;
-        lblEmail.Text = pac.Email;
-        lblEndereco.Text = pac.Endereco;
+        lblNome.Text = pac.Nome.ToUpper();
+        lblEmail.Text = pac.Email.ToUpper();
+        lblEndereco.Text = pac.Endereco.ToUpper();
         lblDataNasc.Text = pac.DataNascimento.ToString();
         lblCelular.Text = pac.Celular;
         if (pac.Celular == null)

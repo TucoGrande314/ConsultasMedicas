@@ -55,6 +55,7 @@ public partial class Login : System.Web.UI.Page
                 break;
             case TipoUsuario.PACIENTE:
                 Session["USUARIO"] = PacienteDao.UsuarioToPaciente(usuario);
+                Response.Redirect("./DefaultPaciente.aspx");
                 break;
             default:
                 Session["USUARIO"] = usuario;
