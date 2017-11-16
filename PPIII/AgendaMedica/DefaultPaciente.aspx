@@ -1,35 +1,28 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DefaultPaciente.aspx.cs" Inherits="DefaultPaciente" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="DefaultPaciente.aspx.cs" Inherits="DefaultPacient" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    
-        <asp:Image ID="imgProfilePic" runat="server" Height="160px" Width="120px" />
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
+     <div> 
+        <div style="top:5px; left:5px; Height:280px; Width:210px"><asp:Image ID="imgProfilePic" runat="server" Height="280px" Width="210px" /></div>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <div  style="position:relative; top:-290px; left:220px;>
+       <asp:Label ID="Label6" runat="server" Font-Bold="True" Font-Size="X-Large"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Font-Bold="True" Text="Nome:" Font-Size="X-Large"></asp:Label>
+        &nbsp;
+        <asp:Label ID="lblNome" runat="server" Font-Size="X-Large"></asp:Label>
         <br />
-        <asp:Label ID="Label1" runat="server" Font-Bold="True" Text="Nome:"></asp:Label>
-        &nbsp;<asp:Label ID="lblNome" runat="server"></asp:Label>
+        <asp:Label ID="Label2" runat="server" Font-Bold="True" Text="E-Mail" Font-Size="X-Large"></asp:Label>
+        &nbsp;<asp:Label ID="lblEmail" runat="server" Font-Size="X-Large"></asp:Label>
         <br />
-        <asp:Label ID="Label2" runat="server" Font-Bold="True" Text="E-Mail"></asp:Label>
-        &nbsp;<asp:Label ID="lblEmail" runat="server"></asp:Label>
+        <asp:Label ID="Label3" runat="server" Font-Bold="True" Text="Data de Nascimento:" Font-Size="X-Large"></asp:Label>
+        &nbsp;<asp:Label ID="lblDataNasc" runat="server" Font-Size="X-Large"></asp:Label>
         <br />
-        <asp:Label ID="Label3" runat="server" Font-Bold="True" Text="Data de Nascimento:"></asp:Label>
-        &nbsp;<asp:Label ID="lblDataNasc" runat="server"></asp:Label>
+        <asp:Label ID="Label4" runat="server" Font-Bold="True" Text="Celular" Font-Size="X-Large"></asp:Label>
+        &nbsp;<asp:Label ID="lblCelular" runat="server" Font-Size="X-Large"></asp:Label>
         <br />
-        <asp:Label ID="Label4" runat="server" Font-Bold="True" Text="Celular"></asp:Label>
-        &nbsp;<asp:Label ID="lblCelular" runat="server"></asp:Label>
-        <br />
-        <asp:Label ID="Label5" runat="server" Font-Bold="True" Text="Endereço:"></asp:Label>
+        <asp:Label ID="Label5" runat="server" Font-Bold="True" Text="Endereço:" Font-Size="X-Large"></asp:Label>
     
-    &nbsp;<asp:Label ID="lblEndereco" runat="server"></asp:Label>
-    
+    &nbsp;<asp:Label ID="lblEndereco" runat="server" Font-Size="X-Large"></asp:Label>
     </div>
-    </form>
-</body>
-</html>
+    </div>
+ </asp:Content>
+

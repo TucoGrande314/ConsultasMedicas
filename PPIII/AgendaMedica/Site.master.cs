@@ -62,10 +62,7 @@ public partial class SiteMaster : MasterPage
                 throw new InvalidOperationException("Validation of Anti-XSRF token failed.");
             }
         }
-    }
 
-    protected void Page_Load(object sender, EventArgs e)
-    {
         var tipo = Session["USUARIO"];
         TipoUsuario tipoUsuario;
 
@@ -78,21 +75,19 @@ public partial class SiteMaster : MasterPage
             tipoUsuario = ((Usuario)tipo).Tipo;
         }
 
-        switch (tipoUsuario) {
+        switch (tipoUsuario)
+        {
             case TipoUsuario.MEDICO:
-                literalMenu.Text = "<li class='selected'><a href = '#'> Home </ a ></li>" +
-                                   "<li><a href='#'>Perfil</a></li>" +
+                literalMenu.Text = "<li'><a href='#'>Perfil</a></li>" +
                                    "<li><a href='#'>Relatórios</a></li>" +
                                    "<li><a href='#'>Consultas</a></li>";
                 break;
             case TipoUsuario.PACIENTE:
-                literalMenu.Text = "<li class='selected'><a href = '#' > Home </ a ></li>" +
-                                   "<li><a href='#'>Perfil</a></li>" +
+                literalMenu.Text = "<li><a href='#'>Perfil</a></li>" +
                                    "<li><a href='#'>Consultas</a></li>";
                 break;
             case TipoUsuario.SECRETARIA:
-                literalMenu.Text = "<li class='selected'><a href = '#'> Home </a></li>" +
-                                   "<li><a href='#'>Perfil</a></li>" +
+                literalMenu.Text = "<li><a href='#'>Perfil</a></li>" +
                                    "<li><a href='#'>Relatórios</a></li>" +
                                    "<li><a href='#'>Estatísticas</a></li>" +
                                    "<li><a href='#'>Consultas</a></li>";
@@ -101,6 +96,11 @@ public partial class SiteMaster : MasterPage
                 Response.Redirect("./Login.aspx");
                 break;
         }
+    }
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
 
         /*
             < li class="selected"><a href = "#" > Home </ a ></ li >

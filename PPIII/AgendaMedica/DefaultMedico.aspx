@@ -44,11 +44,12 @@
                         <asp:BoundField DataField="inicio_consulta" HeaderText="Inicio" SortExpression="inicio_consulta" />
                         <asp:BoundField DataField="duracao" HeaderText="Duração (min)" SortExpression="duracao" />
                         <asp:BoundField DataField="stat" HeaderText="Status" SortExpression="stat" />
+                        <asp:BoundField AccessibleHeaderText="Id" DataField="id_consulta" HeaderText="Id" SortExpression="idConsulta" />
                     </Columns>
                     <HeaderStyle CssClass="cell" />
                     <SelectedRowStyle BackColor="#D8D8D8" BorderColor="Black" BorderWidth="2px" />
                 </asp:GridView>
-                <asp:SqlDataSource ID="dsConsultas" runat="server" ConnectionString="<%$ ConnectionStrings:BD16167ConnectionString %>" SelectCommand="SELECT [dados_paciente], [dados_medico], [id_medico], [id_paciente], [data_consulta], [inicio_consulta], [duracao], [stat] FROM [view_consultas]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="dsConsultas" runat="server" ConnectionString="<%$ ConnectionStrings:BD16167ConnectionString %>" SelectCommand="SELECT [dados_paciente], [dados_medico], [id_medico], [id_paciente], [data_consulta], [inicio_consulta], [duracao], [stat], [id_consulta] FROM [view_consultas]"></asp:SqlDataSource>
             </div>
         </div>
 </asp:Content>
