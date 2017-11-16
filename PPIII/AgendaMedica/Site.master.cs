@@ -78,9 +78,9 @@ public partial class SiteMaster : MasterPage
         switch (tipoUsuario)
         {
             case TipoUsuario.MEDICO:
-                literalMenu.Text = "<li><a href='#'>Perfil</a></li>" +
-                                   "<li><a href='#'>Relatórios</a></li>" +
-                                   "<li><a href='#'>Consultas</a></li>";
+                literalMenu.Text = //"<li><a href='#'>Perfil</a></li>" +
+                                   //"<li><a href='#'>Relatórios</a></li>" +
+                                   "<li><a href='DefaultMedico.aspx'>Consultas</a></li>";
                 break;
             case TipoUsuario.PACIENTE:
                 literalMenu.Text = "<li><a href='#'>Perfil</a></li>" +

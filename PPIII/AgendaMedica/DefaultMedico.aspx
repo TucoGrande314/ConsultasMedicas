@@ -35,7 +35,7 @@
                 <h3>Consultas</h3>
                 <hr style="border-color:rgba(0, 0, 0, 0.9)">
                 <br>
-                <asp:GridView ID="gvConsultas" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="5" CellSpacing="5" DataSourceID="dsConsultas" Height="100%" CssClass="gridView" OnSelectedIndexChanged="gvConsultas_SelectedIndexChanged" SelectedIndex="0">
+                <asp:GridView ID="gvConsultas" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="5" CellSpacing="5" DataSourceID="dsConsultas" Height="100%" CssClass="gridView" OnSelectedIndexChanged="gvConsultas_SelectedIndexChanged">
                     <Columns>
                         <asp:CommandField ShowSelectButton="True"/>
                         <asp:BoundField DataField="dados_paciente" HeaderText="Paciente" SortExpression="dados_paciente"/>
