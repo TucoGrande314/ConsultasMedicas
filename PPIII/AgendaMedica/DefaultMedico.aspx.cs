@@ -48,9 +48,26 @@ public partial class DefaultMedico : System.Web.UI.Page
                 lbPaciente.Text = gvConsultas.SelectedRow.Cells[1].Text;
                 // data da consulta
                 lbData.Text = gvConsultas.SelectedRow.Cells[3].Text;
-                // data da consulta
+                // hora da consulta
                 lbHorario.Text = gvConsultas.SelectedRow.Cells[4].Text;
+                // status da consulta
+                rbStatus.SelectedValue = gvConsultas.SelectedRow.Cells[6].Text;
 
+                var consulta = new Consulta();
+                consulta.Id = Convert.ToInt32(gvConsultas.SelectedRow.Cells[7].Text);
+                Anotacoes anotacoes = AnotacoesDao.getAnotacao(consulta);
+
+                if (anotacoes != null)
+                {
+                    txtDiagnostico.Text = anotacoes.Diagnostico;
+                    txtMedicamentos.Text = anotacoes.Medicacao;
+                }
+                else
+                {
+                    txtMedicamentos.Text = "";
+                    txtDiagnostico.Text = "";
+                }
+                
                 pnlConsultaSelecionada.Visible = true;
             }
         }
@@ -72,7 +89,32 @@ public partial class DefaultMedico : System.Web.UI.Page
         anotacoes.Diagnostico = txtDiagnostico.Text;
         anotacoes.Medicacao = txtMedicamentos.Text;
         anotacoes.Consulta = consulta;
+        anotacoes.Resultado = "";
 
+        var anotacoesBanco = AnotacoesDao.getAnotacao(consulta);
 
+        if (anotacoesBanco == null)
+        {
+            if (AnotacoesDao.cadastrarAnotacoes(anotacoes))
+            {
+                if (ConsultaDao.cadastrarConsulta(consulta))
+                {
+                    dsConsultas.DataBind();
+                }
+            }
+        }
+        else
+        {
+            anotacoes.Id = anotacoesBanco.Id;
+
+            if (AnotacoesDao.atualizarAnotacao(anotacoes))
+            {
+                if (ConsultaDao.cadastrarConsulta(consulta))
+                {
+                    dsConsultas.DataBind();
+                    gvConsultas.DataBind();
+                }
+            }
+        }
     }
 }
