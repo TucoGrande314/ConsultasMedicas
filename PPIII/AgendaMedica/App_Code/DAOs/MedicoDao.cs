@@ -54,4 +54,32 @@ public class MedicoDao
         drDados.Close();
         return null;
     }
+
+    public static List<Medico> getMedicos()
+    {
+        if (!Dao.EstaAberto())
+        {
+            Dao.AbrirConexao();
+        }
+        SqlDataReader drDados;
+        string comando = "SELECT * FROM Medico";
+
+        SqlCommand comSql = new SqlCommand(comando, Dao.Conexao);
+        drDados = comSql.ExecuteReader();
+
+        List<Medico> retorno= new List<Medico>();
+        while (drDados.Read())
+        {
+            Medico novoMedico = new Medico();
+
+            novoMedico.IdMedico = (int)drDados[1];
+            novoMedico.Nome =     drDados[3].ToString();
+            novoMedico.Celular = drDados[4].ToString();
+            novoMedico.Especializacao = EspecializacaoDao.getEspecializacao(Convert.ToInt32(drDados["id_especializacao"]));
+
+            retorno.Add(novoMedico);
+        }
+        Dao.FecharConexao();
+        return retorno;
+    } 
 }
