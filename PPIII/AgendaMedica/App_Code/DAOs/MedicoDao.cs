@@ -72,9 +72,9 @@ public class MedicoDao
         {
             Medico novoMedico = new Medico();
 
-            novoMedico.IdMedico = (int)drDados[1];
-            novoMedico.Nome =     drDados[3].ToString();
-            novoMedico.Celular = drDados[4].ToString();
+            novoMedico.IdMedico = (int)drDados["id_medico"];
+            novoMedico.Nome =     drDados["nome"].ToString();
+            novoMedico.Celular = drDados["celular"].ToString();
             novoMedico.Especializacao = EspecializacaoDao.getEspecializacao(Convert.ToInt32(drDados["id_especializacao"]));
 
             retorno.Add(novoMedico);
