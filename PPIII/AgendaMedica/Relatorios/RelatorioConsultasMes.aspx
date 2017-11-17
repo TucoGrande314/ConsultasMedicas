@@ -7,18 +7,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body style="background-color: rgba(0,0,0,0)">
     
     <form id="form1" runat="server">
         <asp:Panel ID="Panel1" runat="server">
-            Médico:<br />
-            <asp:DropDownList ID="dlMedicos" runat="server" DataSourceID="dsMedicos" DataTextField="nome" DataValueField="id_medico" Height="16px" Width="295px" AutoPostBack="True" OnSelectedIndexChanged="dlMedicos_SelectedIndexChanged">
+            <h5>Médico</h5>
+            <asp:DropDownList ID="dlMedicos" runat="server" DataSourceID="dsMedicos" DataTextField="nome" DataValueField="id_medico" Height="16px" Width="300px" AutoPostBack="True" OnSelectedIndexChanged="dlMedicos_SelectedIndexChanged">
             </asp:DropDownList>
             <asp:SqlDataSource ID="dsMedicos" runat="server" ConnectionString="<%$ ConnectionStrings:BD16167ConnectionString %>" SelectCommand="SELECT [id_medico], [nome] FROM [Medico]"></asp:SqlDataSource>
+            <br/><br/>
         </asp:Panel>
         <asp:Panel ID="Panel2" runat="server">
-            <asp:Chart ID="chart" runat="server" DataSourceID="dsConsultasMes" Palette="SeaGreen" Width="306px">
+            <asp:Chart ID="chart" runat="server" DataSourceID="dsConsultasMes" Palette="SeaGreen">
                 <series>
                     <asp:Series Name="Series1" XValueMember="mes" YValueMembers="qtd_consultas">
                     </asp:Series>

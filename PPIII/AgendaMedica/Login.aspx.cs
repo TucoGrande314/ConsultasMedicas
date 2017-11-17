@@ -59,6 +59,7 @@ public partial class Login : System.Web.UI.Page
                 break;
             case TipoUsuario.SECRETARIA:
                 Session["USUARIO"] = SecretariaDao.UsuarioToSecretaria(usuario);
+                Response.Redirect("./RelatoriosSecretaria");
                 break;
             case TipoUsuario.PACIENTE:
                 Session["USUARIO"] = PacienteDao.UsuarioToPaciente(usuario);

@@ -11,4 +11,9 @@ public partial class Relatorios_RelatoriosSecretaria : System.Web.UI.Page
     {
 
     }
+
+    protected void lbRelatorio_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
 }
