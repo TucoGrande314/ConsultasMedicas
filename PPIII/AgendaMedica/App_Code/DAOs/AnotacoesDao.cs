@@ -51,9 +51,12 @@ public class AnotacoesDao
             retorno.Resultado = drDados.GetString(2);
             retorno.Diagnostico = drDados.GetString(3);
             retorno.Medicacao = drDados.GetString(4);
+
+            drDados.Close();
         }
         else
         {
+            drDados.Close();
             return null;
         }
 
