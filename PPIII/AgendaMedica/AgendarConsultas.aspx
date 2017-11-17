@@ -1,11 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="AgendarConsultas.aspx.cs" Inherits="AgendarConsultas" %>
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <p>
         <asp:Label ID="Label1" runat="server" Font-Bold="True" Text="Selecione o médico:"></asp:Label>
     </p>
     <p>
-        <asp:ListBox ID="lbxMedicos" runat="server" Height="25px" Width="100px"></asp:ListBox>
+        <asp:DropDownList ID="ddlMedicos" runat="server" DataSourceID="dsMedicos" DataTextField="nome" DataValueField="id_medico">
+        </asp:DropDownList>
+        <asp:SqlDataSource ID="dsMedicos" runat="server" ConnectionString="<%$ ConnectionStrings:BD16167ConnectionString %>" SelectCommand="SELECT [nome], [id_medico] FROM [Medico]"></asp:SqlDataSource>
     </p>
     <p>
         <br />
