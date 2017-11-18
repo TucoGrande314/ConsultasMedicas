@@ -82,4 +82,32 @@ public class MedicoDao
         Dao.FecharConexao();
         return retorno;
     } 
+
+    public static bool CadastrarMedico(Medico medico)
+    {
+        if (!Dao.EstaAberto())
+        {
+            Dao.AbrirConexao();
+        }
+        UsuarioDao.insereUsuario(medico);
+
+        medico.IdUsuario = UsuarioDao.getId(medico.Email, medico.Senha);
+
+        string comando = "INSERT INTO Medico VALUES (@idEspecializacao, @nome, null, @celular, null, @idUsuario)";
+        SqlCommand comSql = new SqlCommand(comando, Dao.Conexao);
+
+        comSql.Parameters.AddWithValue("@idEspecializacao", medico.Especializacao.IdEspecializacao);
+        comSql.Parameters.AddWithValue("@nome", medico.Nome);
+        comSql.Parameters.AddWithValue("@celular", medico.Celular);
+        comSql.Parameters.AddWithValue("@idUsuario", medico.IdUsuario);
+        try
+        {
+            comSql.ExecuteNonQuery();
+            return true;
+        }
+        catch (SqlException sqlEx)
+        {
+            return false;
+        }
+    }
 }

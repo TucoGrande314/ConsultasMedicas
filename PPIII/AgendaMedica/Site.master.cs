@@ -87,10 +87,12 @@ public partial class SiteMaster : MasterPage
                                    "<li><a href='AgendarConsultas.aspx'>Consultas</a></li>";
                 break;
             case TipoUsuario.SECRETARIA:
-                literalMenu.Text = "<li><a href='#'>Perfil</a></li>" +
+                literalMenu.Text =// "<li><a href='#'>Perfil</a></li>" +
                                    "<li><a href='#'>Relatórios</a></li>" +
-                                   "<li><a href='#'>Estatísticas</a></li>" +
-                                   "<li><a href='#'>Consultas</a></li>";
+                                   "<li><a href='RelatoriosSecretaria.aspx'>Estatísticas</a></li>" +
+                                   "<li><a href='#'>Consultas</a></li>" +
+                                   "<li><a href='CadastrarMedico.aspx'>Cadastrar Médico</a></li>";
+                                    
                 break;
             case TipoUsuario.NAO_LOGADO:
                 Response.Redirect("./Login.aspx");
