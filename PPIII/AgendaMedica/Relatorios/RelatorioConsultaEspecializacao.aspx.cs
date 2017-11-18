@@ -16,4 +16,11 @@ public partial class Relatorios_RelatorioConsultaEspecializacao : System.Web.UI.
     {
 
     }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+     
+        dsConsultaEspecializacao.DataBind();
+        Chart1.DataBind();  
+
+    }
 }

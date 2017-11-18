@@ -7,11 +7,13 @@
                     <asp:ListBox ID="lbRelatorio" runat="server" AutoPostBack="True" Width="100%" OnSelectedIndexChanged="lbRelatorio_SelectedIndexChanged">
                     <asp:ListItem Selected="True" Value="RelatorioConsultasMes.aspx">Consultas Mensais por Médico</asp:ListItem>
                     <asp:ListItem Value="RelatorioCancelamentosMes.aspx">Consultas Canceladas Mensalmente</asp:ListItem>
+                        <asp:ListItem Value="RelatorioConsultaEspecializacao.aspx">Consultas por Especialidade  (Mês e Ano)</asp:ListItem>
                 </asp:ListBox>
             </div>
             <div class="col-md-9" style="height:100%">
                 <iframe src="./Relatorios/<%= lbRelatorio.SelectedValue %>" style="width:100%; border:0; height: 500px"/>
             </div>
+    </div>
     </div>
 </asp:Content>
 

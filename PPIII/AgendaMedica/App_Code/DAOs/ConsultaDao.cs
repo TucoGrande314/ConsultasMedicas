@@ -67,4 +67,4 @@ public class ConsultaDao
     }
 }
     
-    public static void inserirConsulta()
+    //public static void inserirConsulta()
