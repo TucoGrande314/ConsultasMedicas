@@ -57,7 +57,8 @@
             </div>
             <div class="row">
                 <span class="col-xs-9"> 
-                 <asp:SqlDataSource ID="dsEspecializacao" runat="server" ConnectionString="<%$ ConnectionStrings:BD16167ConnectionString %>" SelectCommand="SELECT [id_especializacao], [nome_especializacao] FROM [ESPECIALIZACAO]"></asp:SqlDataSource>
+                    <asp:Label ID="lbSucesso" runat="server" Font-Bold="True" ForeColor="#339966"></asp:Label>
+                    <asp:Label ID="lbErro" runat="server" ForeColor="#CC0000" Font-Bold="True"></asp:Label>
                 </span> 
                 <span class="col-xs-2">
                  <br>
@@ -66,6 +67,6 @@
             </div>
         </div>
     </div>
-
+    <asp:SqlDataSource ID="dsEspecializacao" runat="server" ConnectionString="<%$ ConnectionStrings:BD16167ConnectionString %>" SelectCommand="SELECT [id_especializacao], [nome_especializacao] FROM [ESPECIALIZACAO]"></asp:SqlDataSource>
 </asp:Content>
 

@@ -17,6 +17,31 @@ public class UsuarioDao
         //
     }
 
+    public static bool existeUsuario(String email)
+    {
+        if (!Dao.EstaAberto())
+            Dao.AbrirConexao();
+
+        SqlDataReader drDados;
+
+        string comando = "SELECT * FROM Usuario WHERE Email = @Email";
+        SqlCommand comSql = new SqlCommand(comando, Dao.Conexao);
+        comSql.Parameters.AddWithValue("@Email", email);
+
+        drDados = comSql.ExecuteReader();
+
+        if (drDados.Read())
+        {
+            drDados.Close();
+            return true;
+        }
+        else
+        {
+            drDados.Close();
+            return false;
+        }
+    }
+
     public static int getId(string email, string senha)
     {
         if (!Dao.EstaAberto())
