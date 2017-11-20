@@ -38,7 +38,7 @@
                     <label>Mês</label><br/>
                     <asp:DropDownList ID="ddlMes" runat="server" CssClass="combo" Width="100%" AutoPostBack="True">
                         <asp:ListItem></asp:ListItem>
-                        <asp:ListItem Selected="True" Value="1">Janeiro</asp:ListItem>
+                        <asp:ListItem Value="1">Janeiro</asp:ListItem>
                         <asp:ListItem Value="2">Fevereiro</asp:ListItem>
                         <asp:ListItem Value="3">Março</asp:ListItem>
                         <asp:ListItem Value="4">Abril</asp:ListItem>
@@ -48,7 +48,7 @@
                         <asp:ListItem Value="8">Agosto</asp:ListItem>
                         <asp:ListItem Value="9">Setembro</asp:ListItem>
                         <asp:ListItem Value="10">Outubro</asp:ListItem>
-                        <asp:ListItem Value="11">Novembro</asp:ListItem>
+                        <asp:ListItem Value="11" Selected="True">Novembro</asp:ListItem>
                         <asp:ListItem Value="12">Dezembro</asp:ListItem>
                     </asp:DropDownList>
                 </div>

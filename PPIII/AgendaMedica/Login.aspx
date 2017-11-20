@@ -2,17 +2,43 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" style="min-width:340px">
 <head runat="server">
     <title>Login</title>
     <link rel="stylesheet" href="Content/Login.css" />
      <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'/>
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"/>
+    <script>
+        const widthOriginalPainel = "60%";
+        const widthOriginalForm = "40%";
+
+
+        function reajustar() {
+            let painel = document.getElementById("painel");
+            let form = document.getElementById("formContent");
+            let corpo = document.getElementById("corpo");
+
+            
+            if (corpo.clientWidth <= 1000) {
+                painel.style.width = "100%";
+                form.style.width = "100%";
+            }
+            else {
+                painel.style.width = widthOriginalPainel;
+                form.style.width = widthOriginalForm;
+            }
+        }
+    </script>
 </head>
-<body>
+<body onresize="reajustar();">
+  <div id="corpo" style="height:100%;">
+    <div id="painel" class="painel" style="background-image:url('Images/medico-editado.jpg')">
+       <h1>
+           Consultas Médicas
+       </h1>
+    </div>
+    <div id="formContent" class="form">
     <form id="form1" runat="server">
-    <div class="form">
-      
       <ul class="tab-group">
         <li class="tab active"><a href="#login">Faça seu login</a></li>
         <li class="tab"><a href="#signup">Cadastre-se</a></li>
@@ -68,17 +94,21 @@
           <div class="field-wrap">
             <asp:TextBox ID="txtConfSenha" runat="server" placeholder="Confirmar Senha" AutoCompleteType="Disabled" TextMode="Password"></asp:TextBox>
           </div>
-          
-         <asp:Button ID="btnCadastrar" runat="server" class="button button-block" Text="Cadastrar" OnClick="btnCadastrar_Click" />
-          
+
+            <asp:Button ID="btnCadastrar" runat="server" class="button" Text="Cadastrar" OnClick="btnCadastrar_Click" />
+
         </div>
-        
       </div>
-      
-</div> <!-- /form -->
+      </form>
+    </div> <!-- /form -->
+  </div>
+    
   <script src='Scripts/jquery-1.10.2.min.js'></script>
 
-    <script  src="Scripts/Login.js"></script>
-    </form>
+  <script  src="Scripts/Login.js"></script>
+  <script>
+      reajustar();
+  </script>
+
 </body>
 </html>

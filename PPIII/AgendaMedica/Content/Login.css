@@ -4,11 +4,17 @@
 
 html {
   overflow-y: scroll;
+  height:100%;
+  margin:0;
+  padding:0;
 }
 
 body {
   background: #c1bdba;
   font-family: 'Titillium Web', sans-serif;
+  margin:0;
+  padding:0;
+  height:100%
 }
 
 a {
@@ -21,12 +27,34 @@ a:hover {
   color: #179b77;
 }
 
+.painel{
+    display:inline-block;
+    min-width:400px;
+    width: 60%;
+    height:100%;
+    min-height: 750px;
+    margin: auto auto auto auto;
+    justify-content:center;
+    text-align:center;
+    align-items: center;
+}
+
+.painel h1{
+    font-weight:400; 
+    color: rgba(255, 255, 255, 9);
+    font-size:50pt;
+    text-shadow:  rgb(19, 35, 47) 2px 2px 6px;
+}
+
 .form {
   background: rgba(19, 35, 47, 0.9);
   padding: 40px;
-  max-width: 600px;
-  margin: 40px auto;
-  border-radius: 4px;
+  height:100%;
+  width:40%;
+  min-width: 400px;
+  min-height: 750px;
+  display:inline-block;
+  float:right;
   box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
 }
 
@@ -55,11 +83,11 @@ a:hover {
   transition: .5s ease;
 }
 .tab-group li a:hover {
-  background: #179b77;
+  background: rgba(70, 104, 168, 0.9);
   color: #ffffff;
 }
 .tab-group .active a {
-  background: #1ab188;
+  background: rgba(70, 104, 168, 1);
   color: #ffffff;
 }
 
@@ -155,18 +183,18 @@ textarea {
   outline: none;
   border-radius: 0;
   padding: 15px 0;
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight:600;
   text-transform: uppercase;
-  letter-spacing: .1em;
-  background: #1ab188;
+  letter-spacing: .05em;
+  background: rgba(70, 104, 168, 1);
   color: #ffffff;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   -webkit-appearance: none;
 }
 .button:hover, .button:focus {
-  background: #179b77;
+  background: rgba(70, 104, 168, 0.7);
 }
 
 .button-block {
