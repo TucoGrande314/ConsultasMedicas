@@ -65,6 +65,25 @@ public class ConsultaDao
         Dao.FecharConexao();
         return !achou;
     }
+
+    public static void inserirConsulta(Consulta novaCons)
+    {
+        if (novaCons == null)
+        {
+            throw new Exception("consulta nula");
+        }
+
+        if (!Dao.EstaAberto())
+        {
+            Dao.AbrirConexao();
+        }
+        else
+        {
+            Dao.FecharConexao();
+            Dao.AbrirConexao();
+        }
+
+        string comando = "INSERT INTO CONSULTA VALUES (@idPaciente, @idMedico, @dataConsulta, @inicioConsulta, null, 'AGENDADA')";
+
+    }
 }
-    
-    //public static void inserirConsulta()

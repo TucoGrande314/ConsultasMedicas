@@ -16,6 +16,12 @@
         <asp:Calendar ID="cldDatas" runat="server"></asp:Calendar>
     </p>
     <p>
+        <asp:DropDownList ID="ddlHora" runat="server">
+        </asp:DropDownList>
+        <asp:DropDownList ID="ddlMinuto" runat="server">
+        </asp:DropDownList>
+    </p>
+    <p>
         &nbsp;</p>
     <p>
         <asp:Button ID="btnAgendar" runat="server" Height="54px" OnClick="Button1_Click" Text="Agendar consulta" Width="212px" />
