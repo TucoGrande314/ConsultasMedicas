@@ -49,24 +49,28 @@ public class ConsultaDao
         }
     }
 
-    public static bool horarioDisponivel(DateTime data, int idMedico)
+    public static bool horarioDisponivel(DateTime dataHora, int duracaoConsulta, int idMedico)
     {
         if (!Dao.EstaAberto())
             Dao.AbrirConexao();
 
-        string comando = "SELECT FROM CONSULTA WHERE data_consulta= @data AND idMedico= @id";
+        string comando = "exec sp_hoario_disponivel @horarioConsulta, @duracaoConsulta, @idMedico, @dataConsulta";
         SqlCommand comSql = new SqlCommand(comando, Dao.Conexao);
-        comSql.Parameters.AddWithValue("@data", data.ToString("yyyy-MM-dd HH:mm:ss.fff"));
+        comSql.Parameters.AddWithValue("@dataConsulta", dataHora.ToString("yyyy-MM-dd"));
         comSql.Parameters.AddWithValue("@idMedico", idMedico);
+        comSql.Parameters.AddWithValue("@horarioConsulta", dataHora.ToString("HH:mm"));
+        comSql.Parameters.AddWithValue("@duracaoConsulta", duracaoConsulta);
+
 
         SqlDataReader drDados = comSql.ExecuteReader();
+        if (Convert.ToInt32(drDados[0]) != 0)
+            return false;
+        else
+            return true;
 
-        bool achou = drDados.Read();
-        Dao.FecharConexao();
-        return !achou;
     }
 
-    public static void inserirConsulta(Consulta novaCons)
+    public static bool inserirConsulta(Consulta novaCons)
     {
         if (novaCons == null)
         {
@@ -83,7 +87,22 @@ public class ConsultaDao
             Dao.AbrirConexao();
         }
 
-        string comando = "INSERT INTO CONSULTA VALUES (@idPaciente, @idMedico, @dataConsulta, @inicioConsulta, null, 'AGENDADA')";
+        string comando = "INSERT INTO CONSULTA VALUES (@idPaciente, @idMedico, @dataConsulta, @inicioConsulta, @duracao, 'AGENDADA')";
+        SqlCommand comSql = new SqlCommand(comando, Dao.Conexao);
+        comSql.Parameters.AddWithValue("@idPaciente", novaCons.Paciente.IdPaciente);
+        comSql.Parameters.AddWithValue("@idMedico", novaCons.Medico.IdMedico);
+        comSql.Parameters.AddWithValue("@dataConsulta", novaCons.DataConsulta.ToString("yyyy-MM-dd"));
+        comSql.Parameters.AddWithValue("@inicioConsulta", novaCons.InicioConsulta.ToString("HH:mm"));
+        comSql.Parameters.AddWithValue("@duracao", novaCons.Duracao);
 
+        try
+        {
+            comSql.ExecuteNonQuery();
+            return true;
+        }
+        catch(SqlException sqlex)
+        {
+            return false;
+        }
     }
 }

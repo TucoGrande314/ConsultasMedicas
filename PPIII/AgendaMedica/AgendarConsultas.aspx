@@ -12,7 +12,7 @@
     </p>
     <p>
         <br />
-        <asp:Label ID="Label2" runat="server" Font-Bold="True" Text="Selecione a data:"></asp:Label>
+        <asp:Label ID="Label2" runat="server" Font-Bold="True" Text="Selecione a data e o horário "></asp:Label>
         <asp:Calendar ID="cldDatas" runat="server"></asp:Calendar>
     </p>
     <p>
@@ -22,7 +22,12 @@
         </asp:DropDownList>
     </p>
     <p>
-        &nbsp;</p>
+        <asp:Label ID="Label3" runat="server" Font-Bold="True" Text="Selecione a duração"></asp:Label>
+    </p>
+    <p>
+        <asp:DropDownList ID="ddlDuracaoCons" runat="server">
+        </asp:DropDownList>
+        </p>
     <p>
         <asp:Button ID="btnAgendar" runat="server" Height="54px" OnClick="Button1_Click" Text="Agendar consulta" Width="212px" />
     </p>
