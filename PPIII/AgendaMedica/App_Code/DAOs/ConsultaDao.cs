@@ -54,20 +54,20 @@ public class ConsultaDao
         if (!Dao.EstaAberto())
             Dao.AbrirConexao();
 
-        string comando = "exec sp_hoario_disponivel @horarioConsulta, @duracaoConsulta, @idMedico, @dataConsulta";
+        string comando = "exec sp_horario_disponivel @horarioConsulta, @duracaoConsulta, @idMedico, @dataConsulta";
         SqlCommand comSql = new SqlCommand(comando, Dao.Conexao);
-        comSql.Parameters.AddWithValue("@dataConsulta", dataHora.ToString("yyyy-MM-dd"));
+        comSql.Parameters.AddWithValue("@dataConsulta", dataHora);
         comSql.Parameters.AddWithValue("@idMedico", idMedico);
         comSql.Parameters.AddWithValue("@horarioConsulta", dataHora.ToString("HH:mm"));
         comSql.Parameters.AddWithValue("@duracaoConsulta", duracaoConsulta);
 
 
         SqlDataReader drDados = comSql.ExecuteReader();
-        if (Convert.ToInt32(drDados[0]) != 0)
+        drDados.Read();
+        if (Convert.ToInt32(drDados[0])!=0)
             return false;
         else
             return true;
-
     }
 
     public static bool inserirConsulta(Consulta novaCons)
@@ -91,7 +91,7 @@ public class ConsultaDao
         SqlCommand comSql = new SqlCommand(comando, Dao.Conexao);
         comSql.Parameters.AddWithValue("@idPaciente", novaCons.Paciente.IdPaciente);
         comSql.Parameters.AddWithValue("@idMedico", novaCons.Medico.IdMedico);
-        comSql.Parameters.AddWithValue("@dataConsulta", novaCons.DataConsulta.ToString("yyyy-MM-dd"));
+        comSql.Parameters.AddWithValue("@dataConsulta", novaCons.DataConsulta);
         comSql.Parameters.AddWithValue("@inicioConsulta", novaCons.InicioConsulta.ToString("HH:mm"));
         comSql.Parameters.AddWithValue("@duracao", novaCons.Duracao);
 

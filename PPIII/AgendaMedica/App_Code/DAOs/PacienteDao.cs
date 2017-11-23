@@ -21,12 +21,16 @@ public class PacienteDao
         {
             Dao.AbrirConexao();
         }
-
+        else
+        {
+            Dao.FecharConexao();
+            Dao.AbrirConexao();
+        }
         SqlDataReader drDados;
 
-        string comando = "SELECT * FROM Paciente WHERE id_usuario = @idUsuario";
+        string comando = "SELECT * FROM Paciente WHERE id_usuario = "+usuario.IdUsuario;
         SqlCommand comSql = new SqlCommand(comando, Dao.Conexao);
-        comSql.Parameters.AddWithValue("@idUsuario", usuario.IdUsuario);
+       // comSql.Parameters.AddWithValue("@idUsuario", usuario.IdUsuario);
 
         drDados = comSql.ExecuteReader();
 

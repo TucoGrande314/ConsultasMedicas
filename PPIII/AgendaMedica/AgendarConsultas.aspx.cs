@@ -19,6 +19,8 @@ public partial class AgendarConsultas : System.Web.UI.Page
             else
                 ddlHora.Items.Add(""+i);
 
+
+
         for (int i = 0; i < 60; i++)
             if (i < 10)
                 ddlMinuto.Items.Add("0" + i);

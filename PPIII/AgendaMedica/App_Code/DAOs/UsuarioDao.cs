@@ -80,6 +80,11 @@ public class UsuarioDao
         {
             Dao.AbrirConexao();
         }
+        else
+        {
+            Dao.FecharConexao();
+            Dao.AbrirConexao();
+        }
 
         string comando = "SELECT * FROM Usuario WHERE Email = @Email and Senha = @Senha";
         SqlCommand comSql = new SqlCommand(comando, Dao.Conexao);
