@@ -16,6 +16,8 @@ public class Consulta
     private int duracao;
     private string stat;
 
+    public string hora;
+
     public int Id
     {
         get

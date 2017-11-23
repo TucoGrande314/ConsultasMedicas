@@ -65,7 +65,7 @@ public partial class AgendarConsultas : System.Web.UI.Page
         novaCons.Medico = new Medico();
         novaCons.Medico.IdMedico = id;
         novaCons.DataConsulta = dataHora;
-        novaCons.InicioConsulta = dataHora;
+        novaCons.hora = dataHora.Hour + ":" +dataHora.Minute;
         novaCons.Duracao = duracao;
 
         if(ConsultaDao.inserirConsulta(novaCons))

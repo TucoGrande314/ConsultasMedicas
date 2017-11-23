@@ -41,14 +41,16 @@ public class PacienteDao
             retorno = new Paciente();
 
             retorno.IdUsuario = usuario.IdUsuario;
+            retorno.IdPaciente = drDados.GetInt32(1);
+  
             retorno.Email = usuario.Email;
             retorno.Senha = usuario.Senha;
             retorno.Tipo = TipoUsuario.PACIENTE;
-            retorno.Nome = drDados["nome"].ToString();
-            retorno.Celular = drDados["celular"].ToString();
-            retorno.Endereco = drDados["endereco"].ToString();
+            retorno.Nome = drDados.GetString(2).ToString();
+            retorno.Celular = drDados.GetString(4).ToString();
+            retorno.Endereco = drDados.GetString(5).ToString();
           //  retorno.Foto = (Image)drDados["foto"];
-            retorno.DataNascimento = (DateTime)drDados["data_nascimento"];
+            retorno.DataNascimento = drDados.GetDateTime(3);
             drDados.Close();
             return retorno;
         }

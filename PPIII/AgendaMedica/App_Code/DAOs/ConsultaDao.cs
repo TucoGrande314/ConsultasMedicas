@@ -92,7 +92,7 @@ public class ConsultaDao
         comSql.Parameters.AddWithValue("@idPaciente", novaCons.Paciente.IdPaciente);
         comSql.Parameters.AddWithValue("@idMedico", novaCons.Medico.IdMedico);
         comSql.Parameters.AddWithValue("@dataConsulta", novaCons.DataConsulta);
-        comSql.Parameters.AddWithValue("@inicioConsulta", novaCons.InicioConsulta.ToString("HH:mm"));
+        comSql.Parameters.AddWithValue("@inicioConsulta", novaCons.hora);
         comSql.Parameters.AddWithValue("@duracao", novaCons.Duracao);
 
         try
