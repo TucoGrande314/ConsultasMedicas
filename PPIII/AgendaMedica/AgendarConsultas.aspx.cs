@@ -45,7 +45,7 @@ public partial class AgendarConsultas : System.Web.UI.Page
         dataHora.AddMinutes(Convert.ToDouble(ddlMinuto.SelectedValue));
         if (dataHora.CompareTo(DateTime.Now)<0)
         {
-            lblErro.Text = "Não é possível marcar uma consulta numa hora passada";
+            lblErro.Text = "Só é possível marcar consultas para datas fulturas";
             return;
         }
         if (dataHora.CompareTo(DateTime.Now.AddDays(1)) < 0)
@@ -72,5 +72,11 @@ public partial class AgendarConsultas : System.Web.UI.Page
             lblErro.Text = "Consulta agendada com sucesso";
         else
             lblErro.Text = "Houve um erro durante o agendamento, por favor tente novamente";
+    }
+
+    protected void cldDatas_SelectionChanged(object sender, EventArgs e)
+    {
+        dsConsultas.DataBind();
+        GridView1.DataBind();
     }
 }
